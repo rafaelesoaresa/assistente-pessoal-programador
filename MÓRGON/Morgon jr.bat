@@ -12,7 +12,7 @@ echo ^| project shenlong                                                  ^|
 echo +====================================================================+
 
 :: Assinatura do Proprietário
-echo ^|              Assinatura do Proprietario:  rafael eduardo soantos  ^|
+echo ^|  Assinatura do Proprietario:  Rafael Eduardo Soares Do Santos.    ^|
 echo +====================================================================+
 
 :: Nome do Computador e Especificações
@@ -33,7 +33,8 @@ echo ^| Menu:                                                             ^|
 echo ^| 1) Criar Projeto HTML                                             ^|
 echo ^| 2) Salvar Projeto Java                                            ^|
 echo ^| 3) Escolher Linguagem de Programacao                              ^|
-echo ^| 4) Sair                                                           ^|
+echo ^| 4) Criar Projeto Java MVC                                         ^|
+echo ^| 5) Sair                                                           ^|
 echo +====================================================================+
 echo.
 
@@ -44,7 +45,8 @@ set /p escolha="Escolha uma opcao: "
 if "%escolha%"=="1" goto :projeto_html
 if "%escolha%"=="2" goto :projeto_java
 if "%escolha%"=="3" goto :escolher_linguagem
-if "%escolha%"=="4" goto :exit
+if "%escolha%"=="4" goto :projeto_java_mvc
+if "%escolha%"=="5" goto :exit
 
 :projeto_html
 cls
@@ -156,6 +158,45 @@ echo // Arquivo C# vazio > Program.cs
 echo Projeto C# %project_name% criado com sucesso!
 timeout 3 > nul
 echo %date% %time% - Projeto C# criado: %project_name% >> %log_file%
+goto :MENU
+
+:projeto_java_mvc
+cls
+color 0F
+set /p project_name=Digite o nome do projeto Java MVC: 
+
+:: Crie um diretório para o projeto Java MVC
+md %project_name%
+cd %project_name%
+
+:: Crie a estrutura de diretórios MVC
+md src
+cd src
+md main
+cd main
+md java
+cd java
+md com
+cd com
+md example
+cd example
+
+:: Crie classes para Model, View e Controller
+echo public class Model {
+echo     // Sua classe de modelo aqui
+echo } > Model.java
+
+echo public class View {
+echo     // Sua classe de visualização aqui
+echo } > View.java
+
+echo public class Controller {
+echo     // Sua classe de controlador aqui
+echo } > Controller.java
+
+:: Exiba uma mensagem de sucesso
+echo Projeto Java MVC %project_name% criado com sucesso!
+timeout 3 > nul
 goto :MENU
 
 :default
