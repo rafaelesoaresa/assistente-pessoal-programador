@@ -1,3 +1,5 @@
+//O codigo Nao esta pronto mas passa por manutençao
+
 import os
 import time
 
