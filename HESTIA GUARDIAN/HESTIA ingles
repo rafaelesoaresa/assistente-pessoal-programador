@@ -1,0 +1,346 @@
+@echo off
+cls
+
+color 0E
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo.^|                                                                                                                  ^|
+echo.^| HESTIA ENVIRONMENTAL GUARDIAN                                                                                    ^|
+echo.^|                                                                                                                  ^|
+echo.^| Protecting the Environment                                                                                         ^|
+echo.^|                                                                                                                  ^|
+echo.^| Version 1.0 - Copyright 2023                                                                                      ^|
+echo.^|                                                                                                                  ^|
+echo.^|                                                                                                                  ^|
+echo.^|                               ##  ##  #######   #####    # #####  ######    ###                                  ^|
+echo.^|                                ##  ##   ##   #  ##   ##  ## ## ##    ##     ## ##                                ^|
+echo.^|                                 ##  ##   ##      ##          ##       ##    ##   ##                              ^|
+echo.^|                                 ######   ####     #####      ##       ##    ##   ##                              ^|
+echo.^|                                ##  ##   ##           ##     ##       ##    #######                               ^|
+echo.^|                               ##  ##   ##   #  ##   ##     ##       ##    ##   ##                                ^|
+echo.^|                              ##  ##  #######   #####     ####    ######  ##   ##                                 ^|
+echo.^|                                                                                                                  ^|
+echo.^|                                                                                                                  ^|
+echo ^| Computer Name: PC-PCYes Viking                                                                                    ^|
+echo ^| Operating System: Windows 11                                                                                      ^|
+echo ^| IP Address: 192.168.0.100                                                                                         ^|
+echo ^| RAM: 16GB                                                                                                         ^|
+echo ^| Disk Space: 1450GB                                                                                                ^|
+echo  =+=================================================================================================================+=
+echo +====================================================================================================================+
+echo. Initializing... Please wait...                                                                                     
+:: End of ASCII art
+timeout /t 7 >nul
+cls
+
+color 0E
+echo.
+echo.
+echo.
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo ^|                                                                                                                  ^|
+echo ^|                                             HESTIA ENVIRONMENTAL GUARDIAN                                        ^|
+echo ^|                                                                                                                  ^|
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo.
+timeout /t 4 >nul
+cls
+
+color 0E
+echo.
+echo.
+echo. Loading system modules...
+timeout /t 2 >nul
+
+color 0E
+echo.
+echo.
+echo.
+echo.
+echo.
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo ^|                                                                                                                   ^|
+echo ^|                                               Loading completed.                                                  ^|
+echo ^|                                                                                                                   ^|
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+timeout /t 2 >nul
+cls
+
+color 0E
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.+====================================================================================================================+
+echo +====================================================================================================================+
+echo ^|                                               Welcome back!                                                      ^|
+echo ^|                                                                                                                  ^|
+echo ^|                                               Rafael Eduardo                                                     ^|
+echo.+====================================================================================================================+
+echo +====================================================================================================================+
+timeout /t 4 >nul
+cls
+
+color 0E
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.                       Initializing System
+timeout /t 1 >nul
+cls
+
+color 0E
+set log_file=log.txt
+
+color 01
+
+:MENU
+color 0E
+echo  =+=================================================================================================================+=
+echo +====================================================================================================================+
+echo ^|                                                 HESTIA ENVIRONMENTAL GUARDIAN                                    ^|
+echo ^|                                                  Energy Star                                                     ^|
+echo ^|                                                  Edition: APOLLO                                                 ^|
+echo  =+=================================================================================================================+=
+echo +====================================================================================================================+
+
+:: Owner's Signature
+echo ^|  Owner's Signature:  Rafael Eduardo Soares Do Santos.                                                             ^|
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+
+:: Computer Name and Specifications
+:: Welcome to MORGON
+echo ^|                 Welcome to HESTIA - Your Assistant                                                               ^|
+echo =+=================================================================================================================+=
+echo +====================================================================================================================+
+
+:MENU
+:: Options Menu
+echo ^|=*= Menu:                                                                                                          ^|
+echo ^|=*= 1) Create HTML Project                                                                                        ^|
+echo ^|=*= 2) Save Java Project                                                                                           ^|
+echo ^|=*= 3) Choose Programming Language                                                                                 ^|
+echo ^|=*= 4) Save Maven Project                                                                                          ^|
+echo ^|=*= 5) Create MySQL Database                                                                                       ^|
+echo ^|=*= 6) Exit                                                                                                        ^|
+echo  =*=================================================================================================================+=
+echo +====================================================================================================================+
+
+:: Request user choice
+set /p choice="Choose an option: "
+
+:: Redirect based on choice
+if "%choice%"=="1" goto :html_project
+if "%choice%"=="2" goto :java_project
+if "%choice%"=="3" goto :choose_language
+if "%choice%"=="4" goto :save_maven_project
+if "%choice%"=="5" goto :create_mysql_database
+if "%choice%"=="6" goto :exit
+
+:html_project
+cls
+echo  +===================================+
+echo ^| HTML Project Directory Generator  ^|
+echo  +===================================+
+echo .
+echo .      Creating Folders...
+echo .
+timeout 5 > nul
+
+cd %userprofile%\desktop\
+md HTMLPROJECT
+cd HTMLPROJECT
+md _css _js _img
+echo. > index.html
+echo  +========================+                  .
+echo  ^|  . Directory Created. ^|
+echo  +========================+
+timeout 3 > nul
+goto :MENU
+
+:java_project
+cls
+set /p folder_name=ENTER PROJECT NAME:
+
+for /d %%i in "%userprofile%\eclipse-workspace\*" do (
+    if /i "%%~nxi"=="%folder_name%" (
+        xcopy "%%i" "%userprofile%\desktop\%folder_name%" /E/Q/K/I
+        echo Folder %folder_name% copied to desktop.
+        timeout 3 > nul
+        goto :MENU
+    )
+)
+echo %date% %time% - Java Project created successfully: %folder_name% >> %log_file%
+goto :MENU
+
+:choose_language
+cls
+echo Choose a programming language:
+echo 1) JavaScript
+echo 2) Python
+echo 3) Ruby
+echo 4) C#
+set /p choice="Enter the language number: "
+echo %date% %time% - Language choice: %choice% >> %log_file%
+
+if %choice%==1 goto :js_project
+if %choice%==2 goto :python_project
+if %choice%==3 goto :ruby_project
+if %choice%==4 goto :csharp_project
+goto :default
+
+:js_project
+cls
+color 01
+set /p project_name=Enter JavaScript Project Name:
+
+md %project_name%
+cd %project_name%
+
+echo // Empty JavaScript File > script.js
+
+echo JavaScript Project %project_name% created successfully!
+timeout 3 > nul
+echo %date% %time% - JavaScript Project created: %project_name% >> %log_file%
+goto :MENU
+
+:python_project
+cls
+color 01
+set /p project_name=Enter Python Project Name:
+
+md %project_name%
+cd %project_name%
+
+echo # Empty Python File > script.py
+
+echo Python Project %project_name% created successfully!
+timeout 3 > nul
+echo %date% %time% - Python Project created: %project_name% >> %log_file%
+goto :MENU
+
+:ruby_project
+cls
+color 01
+set /p project_name=Enter Ruby Project Name:
+
+md %project_name%
+cd %project_name%
+
+echo # Empty Ruby File > script.rb
+
+echo Ruby Project %project_name% created successfully!
+timeout 3 > nul
+echo %date% %time% - Ruby Project created: %project_name% >> %log_file%
+goto :MENU
+
+:csharp_project
+cls
+color 01
+set /p project_name=Enter C# Project Name:
+
+md %project_name%
+cd %project_name%
+
+echo // Empty C# File > Program.cs
+
+echo C# Project %project_name% created successfully!
+timeout 3 > nul
+echo %date% %time% - C# Project created: %project_name% >> %log_file%
+goto :MENU
+
+:save_maven_project
+cls
+setlocal enabledelayedexpansion
+set /p maven_project_name=Enter the name of the new Maven project:
+
+:: Path to Eclipse Workspace directory
+set "eclipse_workspace=%userprofile%\eclipse-workspace"
+
+:: Create a directory for the new Maven project
+md %maven_project_name%
+cd %maven_project_name%
+
+:: Copy the Maven project from Eclipse Workspace to the new directory
+xcopy "%eclipse_workspace%\*" . /E/Q/K/I
+echo Maven Project %maven_project_name% created successfully!
+timeout 3 > nul
+goto :MENU
+
+setlocal enabledelayedexpansion
+
+set /p db_name=Enter the name of the MySQL database:
+set /p num_tables=Enter the number of tables to be created:
+
+:: Create the SQL file based on the input
+echo CREATE DATABASE IF NOT EXISTS %db_name%; > script.sql
+echo USE %db_name%; >> script.sql
+
+:: Loop to create tables
+for /l %%i in (1, 1, %num_tables%) do (
+    set /p table_name=Enter the name of table %%i:
+    set /p num_columns=Enter the number of columns for table !table_name!:
+
+    :: Start the CREATE TABLE statement
+    set table_declaration=CREATE TABLE IF NOT EXISTS !table_name! (
+
+    :: Loop to create columns
+    for /l %%j in (1, 1, %num_columns%) do (
+        set /p column_name=Enter the name of column %%j for table !table_name!:
+        set /p column_type=Enter the data type for column %%j (e.g., VARCHAR(255)):
+        set table_declaration=!table_declaration!, !column_name! !column_type!
+    )
+
+    :: Complete the CREATE TABLE statement
+    set table_declaration=!table_declaration!, id INT AUTO_INCREMENT PRIMARY KEY);
+    echo !table_declaration! >> script.sql
+)
+
+echo script.sql file generated successfully!
+timeout 3 > nul
+goto :MENU
+
+:default
+cls
+color 01
+echo Invalid option
+timeout 3 > nul
+goto :MENU
+
+:exit
+cls
+echo.
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo ^|        Thank you for using HESTIA!                                                                               ^|
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo.
+timeout 3 > nul
+
+echo.
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo ^|   Please wait while the program is closing....
+echo +====================================================================================================================+
+echo +====================================================================================================================+
+echo.
+timeout /t 5 >nul
+echo.
+echo.
+echo.
+echo. +=======================+
+echo.^|  Ready, goodbye...    ^|
+echo. +=======================+
+timeout /t 1 >nul
+goto :EOF
