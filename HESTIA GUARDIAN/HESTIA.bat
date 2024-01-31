@@ -216,26 +216,39 @@ timeout 5 > nul
 rem Mudando para a área de trabalho (desktop)
 cd %userprofile%\desktop\
 
-rem Criando pasta principal do projeto com base no nome fornecido
-md %project_name%
-cd %project_name%
+rem Verificando se o diretório já existe
+if exist "%project_name%" (
+    echo O projeto com esse nome já existe. Escolha outro nome.
+    exit /b
+) else (
+    rem Criando pasta principal do projeto com base no nome fornecido
+    md "%project_name%" 2>nul
+    if errorlevel 1 (
+        echo Não foi possível criar o diretório. Verifique se tem permissão para gravar na área de trabalho.
+        exit /b
+    )
+)
+
+cd "%project_name%"
 
 rem Criando subpastas para CSS, JS e imagens
 md _css _js _img
 
 rem Criando arquivo index.html na mesma pasta
-echo ^<!DOCTYPE html^> > %project_name%.html
-echo ^<html^> >> %project_name%.html
-echo. >> %project_name%.html
-echo ^<head^> >> %project_name%.html
-echo ^<title^>%project_name%^</title^> >> %project_name%.html
-echo ^</head^> >> %project_name%.html
-echo. >> %project_name%.html
-echo ^<body^> >> %project_name%.html
-echo   ^<h1^>Bem-vindo ao %project_name%^</h1^> >> %project_name%.html
-echo ^</body^> >> %project_name%.html
-echo. >> %project_name%.html
-echo ^</html^> >> %project_name%.html
+(
+    echo ^<!DOCTYPE html^>
+    echo ^<html^>
+    echo.
+    echo ^<head^>
+    echo ^<title^>%project_name%^</title^>
+    echo ^</head^>
+    echo.
+    echo ^<body^>
+    echo   ^<h1^>Bem-vindo ao %project_name%^</h1^>
+    echo ^</body^>
+    echo.
+    echo ^</html^>
+) > "%project_name%.html"
 
 echo +===================================+
 echo ^| Diretório Criado Bom Estudo.    ^|
